@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 include 'conn.php'; // الاتصال بقاعدة البيانات
 
 // التحقق من تسجيل الدخول
@@ -35,12 +37,19 @@ $query = mysqli_query($conn, $sql);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- ملف CSS المخصص -->
     <link rel="stylesheet" href="test.css">
+    <style>
+        .table th,
+        .table td {
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
 </head>
 
 <body>
 
     <!-- الهيدر -->
-    <?php include 'header.php' ?>
+    <?php include 'header.php'; ?>
 
     <!-- قسم عرض الطلبات -->
     <section class="orders py-5">
@@ -54,6 +63,10 @@ $query = mysqli_query($conn, $sql);
                         <th scope="col">نوع الجهاز</th>
                         <th scope="col">نوع المشكلة</th>
                         <th scope="col">رقم العميل</th>
+                        <th scope="col">حالة الطلب</th>
+                        <?php if ($user_level == 1) { ?>
+                            <th scope="col">الإجراءات</th>
+                        <?php } ?>
                     </tr>
                 </thead>
                 <tbody>
@@ -69,13 +82,21 @@ $query = mysqli_query($conn, $sql);
                                     <td>" . $row["phone"] . "</td>
                                     <td>" . $row["dsc_type"] . "</td>
                                     <td>" . $row["cnum"] . "</td>
-                                </tr>";
+                                    <td>" . $row["case"] . "</td>";
+                                // عرض أزرار الحذف والتعديل للمستخدم بمستوى 1
+                                if ($user_level == 1) {
+                                    echo "<td>
+                                        <a href='edit_order.php?onum=" . $row["onum"] . "' class='btn btn-sm btn-warning'>تعديل</a>
+                                        <a href='delete_order.php?onum=" . $row["onum"] . "' class='btn btn-sm btn-danger' onclick='return confirm(\"هل أنت متأكد من حذف هذا الطلب؟\")'>حذف</a>
+                                    </td>";
+                                }
+                                echo "</tr>";
                             }
                         } else {
-                            echo "<tr><td colspan='5' class='text-center'>لا توجد طلبات.</td></tr>";
+                            echo "<tr><td colspan='7'>لا توجد طلبات.</td></tr>";
                         }
                     } else {
-                        echo "<tr><td colspan='5' class='text-center'>حدث خطأ أثناء جلب البيانات.</td></tr>";
+                        echo "<tr><td colspan='7'>حدث خطأ أثناء جلب البيانات.</td></tr>";
                     }
                     ?>
                 </tbody>
@@ -90,7 +111,6 @@ $query = mysqli_query($conn, $sql);
         </div>
     </footer>
 
-    <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
