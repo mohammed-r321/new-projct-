@@ -1,0 +1,112 @@
+/* تحسين الأزرار */
+.custom-btn {
+    transition: all 0.3s ease-in-out;
+    border-radius: 50px;
+    padding: 10px 30px;
+}
+
+.custom-btn:hover {
+    background-color: #014ecb;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* تحسين البطاقات */
+.service-card {
+    transition: all 0.3s ease-in-out;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.service-card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+/* تنسيق الهيدر */
+header .nav-link:hover {
+    text-decoration: underline;
+}
+
+/* تنسيق حجم كلمة الرئيسية */
+header .nav-link {
+    font-size: 23px;
+    font-weight: bold;
+}
+
+/* تحسين العروض */
+.offers {
+    background-color: #ff9800;
+    color: white;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.offers .custom-btn:hover {
+    background-color: #e68a00;
+}
+
+/* تحسين قسم البطل */
+.hero {
+    background-color: #0059ff;
+    padding: 80px 0;
+}
+
+.hero h2 {
+    font-size: 2.5em;
+}
+
+.hero p {
+    font-size: 1.2em;
+}
+
+.hero .btn {
+    padding: 12px 30px;
+}
+
+/* تحسين الفوتر */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* ضبط الحجم الثابت للشعار */
+
+
+/* إزالة أية قيود من الحاوية التي تحتوي على الشعار */
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ضبط الحجم الثابت للشعار */
+.logo img {
+    width: 80px; /* يمكنك تعديل العرض حسب الرغبة */
+    height: auto;
+}
+
+/* إزالة قيود التوسيط من الحاوية */
+header .container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.nav {
+    margin-left: auto; /* يجعل قائمة التنقل تظهر على اليمين */
+}
+
+
+
+
+.hero h2,
+.hero p {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.hero .btn {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
