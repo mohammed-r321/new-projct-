@@ -64,9 +64,7 @@ $query = mysqli_query($conn, $sql);
                         <th scope="col">نوع المشكلة</th>
                         <th scope="col">رقم العميل</th>
                         <th scope="col">حالة الطلب</th>
-                        <?php if ($user_level == 1) { ?>
-                            <th scope="col">الإجراءات</th>
-                        <?php } ?>
+                        <th scope="col">الإجراءات</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -83,14 +81,14 @@ $query = mysqli_query($conn, $sql);
                                     <td>" . $row["dsc_type"] . "</td>
                                     <td>" . $row["cnum"] . "</td>
                                     <td>" . $row["case"] . "</td>";
-                                // عرض أزرار الحذف والتعديل للمستخدم بمستوى 1
+                                // عرض أزرار الإجراءات
+                                echo "<td>
+                                        <a href='details.php?onum=" . $row["onum"] . "' class='btn btn-sm btn-info'>تفاصيل</a>";
                                 if ($user_level == 1) {
-                                    echo "<td>
-                                        <a href='edit_order.php?onum=" . $row["onum"] . "' class='btn btn-sm btn-warning'>تعديل</a>
-                                        <a href='delete_order.php?onum=" . $row["onum"] . "' class='btn btn-sm btn-danger' onclick='return confirm(\"هل أنت متأكد من حذف هذا الطلب؟\")'>حذف</a>
-                                    </td>";
+                                    echo "<a href='edit_order.php?onum=" . $row["onum"] . "' class='btn btn-sm btn-warning mx-1'>تعديل</a>
+                                        <a href='delete_order.php?onum=" . $row["onum"] . "' class='btn btn-sm btn-danger' onclick='return confirm(\"هل أنت متأكد من حذف هذا الطلب؟\")'>حذف</a>";
                                 }
-                                echo "</tr>";
+                                echo "</td></tr>";
                             }
                         } else {
                             echo "<tr><td colspan='7'>لا توجد طلبات.</td></tr>";

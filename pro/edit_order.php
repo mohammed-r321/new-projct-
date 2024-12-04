@@ -98,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">تحديث</button>
-            <a href="orders.php" class="btn btn-secondary">إلغاء</a>
+            <a href="costmer.php" class="btn btn-secondary">إلغاء</a>
         </form>
     </div>
 
