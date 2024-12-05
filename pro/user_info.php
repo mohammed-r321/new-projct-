@@ -79,6 +79,11 @@ if (isset($_GET['uid'])) {
             display: block;
             margin: 20px auto 0;
         }
+        body {
+        direction: rtl;
+        text-align: right;
+        font-family: 'Arial', sans-serif;
+    }
     </style>
 </head>
 

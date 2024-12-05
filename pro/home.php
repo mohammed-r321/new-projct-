@@ -15,12 +15,6 @@
             background-color: #343a40;
         }
 
-        header .logo img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-        }
-
         header .logo span {
             color: white;
             font-size: 1.2rem;
@@ -37,7 +31,7 @@
             color: #ffcc00;
         }
     </style>
-    
+
 </head>
 
 <body dir="rtl" class="bg-light">
@@ -55,8 +49,6 @@
             align-items: center;
             justify-content: center;
         }
-
-  
     </style>
 
 
@@ -120,7 +112,7 @@
                 </div>
                 <div class="col-md-6">
                     <blockquote class="blockquote bg-white p-4 rounded shadow-sm">
-                        <p class="mb-0">أفضل مكان لصيانة الأجهزة، خدمات ممتازة  .</p>
+                        <p class="mb-0">أفضل مكان لصيانة الأجهزة، خدمات ممتازة .</p>
                         <footer class="blockquote-footer mt-2">عميل راضٍ</footer>
                     </blockquote>
                 </div>
